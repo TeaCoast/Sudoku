@@ -43,7 +43,7 @@ class SudokuMatrix:
     
 @dataclass
 class SudokuNoteMatrix:
-    domains: list[set[int]]
+    domains: list[list[int]]
 
     def get_value(self, row_i: int, column_i: int):
         return self.domains[row_i * 9 + column_i]
@@ -64,6 +64,25 @@ class SudokuNoteMatrix:
         return [self.get_value_from_block(row_block_i, row_i, column_block_i, column_i) 
                 for column_i in range(3) for row_i in range(3)]
     
+    def inverse_domains(self, domains: list[list[int]]) -> list[int]:
+        pass
+
+    def simplify(self):
+        for symbol in symbols:
+            for row_block_i in range(3):
+                for column_block_i in range(3):
+                    block = self.get_block(row_block_i, column_block_i)
+                    for domain in block:
+
+
+
+            for row_i in range(9):
+                row = self.get_row(row_i)
+
+            for column_i in range(9):
+                column = self.get_column(column_i)
+        
+
     def num_to_str(self, num: int):
         if num == 0:
             return ' '
